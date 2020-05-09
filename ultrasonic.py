@@ -24,6 +24,7 @@ GPIO.output(LED1,False)
 GPIO.output(LED2,False)
 GPIO.output(LED3,False)
 GPIO.output(LED4,False)
+GPIO.output(LED5,False)
 
 def pulse_time():
 	GPIO.output(TRIG,True)

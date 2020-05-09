@@ -21,7 +21,6 @@ GPIO.setup(LED3,GPIO.OUT)
 GPIO.setup(LED4,GPIO.OUT)
 GPIO.setup(LED5,GPIO.OUT)
 
-
 GPIO.output(TRIG,False)
 GPIO.output(LED1,False)
 GPIO.output(LED2,False)

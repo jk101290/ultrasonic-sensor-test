@@ -11,8 +11,6 @@ LED3 = 13
 LED4 = 6
 LED5 = 5
 
-print ("Ultrasonic Sensor Test!")
-
 GPIO.setup(TRIG,GPIO.OUT)
 GPIO.setup(ECHO,GPIO.IN)
 GPIO.setup(LED1,GPIO.OUT)
@@ -83,14 +81,20 @@ def led_on(cm):
 		GPIO.output(LED5,True)
 	return
 
-print ("Waiting for 2s...")
-time.sleep(2)
+def main():
+	print("Ultrasonic Sensor Test!")
+	print("Waiting for 2s...")
+	time.sleep(2)
+	
+	while True:
+		try:
+			pulse_end, pulse_start = pulse_time()
+			distance = calc_distance(pulse_end,pulse_start)
+			led_on(distance)
+			time.sleep(0.5)
+		except(KeyboardInterrupt):
+			GPIO.cleanup()
+		
 
-while True:
-	try:
-		pulse_end, pulse_start = pulse_time()
-		distance = calc_distance(pulse_end,pulse_start)
-		led_on(distance)
-		time.sleep(0.5)
-	except(KeyboardInterrupt):
-		GPIO.cleanup()
+if __name__ == "__main__":
+	main()

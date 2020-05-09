@@ -27,7 +27,6 @@ GPIO.output(LED1,False)
 GPIO.output(LED2,False)
 GPIO.output(LED3,False)
 GPIO.output(LED4,False)
-GPIO.output(TRIG,False)
 
 def calc_distance(pulse_end,pulse_start):
 	pulse_duration = pulse_end - pulse_start

@@ -28,13 +28,6 @@ GPIO.output(LED2,False)
 GPIO.output(LED3,False)
 GPIO.output(LED4,False)
 
-def calc_distance(pulse_end,pulse_start):
-	pulse_duration = pulse_end - pulse_start
-	distance = pulse_duration * 17150
-	distance = round(distance,2)
-	print ("Distance: " + str(distance) +" cm")
-	return distance
-
 def pulse_time():
 	GPIO.output(TRIG,True)
 	time.sleep(0.00001)
@@ -44,6 +37,13 @@ def pulse_time():
 	while GPIO.input(ECHO) == 1:
 		pulse_end = time.time()
 	return pulse_end, pulse_start
+
+def calc_distance(pulse_end,pulse_start):
+	pulse_duration = pulse_end - pulse_start
+	distance = pulse_duration * 17150
+	distance = round(distance,2)
+	print ("Distance: " + str(distance) +" cm")
+	return distance
 
 def led_on(cm):
 	if cm > 25:

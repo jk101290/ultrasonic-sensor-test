@@ -95,6 +95,5 @@ def main():
 		except(KeyboardInterrupt):
 			GPIO.cleanup()
 		
-
 if __name__ == "__main__":
 	main()
